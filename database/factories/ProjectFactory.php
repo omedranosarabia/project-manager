@@ -2,18 +2,21 @@
 
 namespace Database\Factories;
 
+use App\Models\City;
+use App\Models\Company;
+use App\Models\Project;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class UserFactory extends Factory
+class ProjectFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Project::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +26,12 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word()
+            'city_id' => City::factory(),
+            'company_id' => Company::factory(),
+            'user_id' => User::factory(),
+            'name' => $this->faker->word(),
+            'execution_date' => $this->faker->dateTime(),
+            'is_active' => random_int(0, 1)
         ];
     }
 
