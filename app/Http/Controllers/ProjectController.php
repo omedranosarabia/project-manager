@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use PHPUnit\Util\Json;
 
 class ProjectController extends Controller
@@ -110,5 +111,12 @@ class ProjectController extends Controller
         $projects = Project::active()->get();
 
         return response()->json([$projects]);
+    }
+
+    public function testQueryBuilder(){
+
+        DB::table('projects')->where('name', 'test')->first();
+
+        DB::table('projects')->find(10);
     }
 }
