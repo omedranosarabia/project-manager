@@ -23,3 +23,11 @@ Route::get('/getAllProjects', [ProjectController::class, 'getAllProjects']);
 Route::get('/getLastTenProjects', [ProjectController::class, 'getLastTenProjects']);
 
 Route::get('insertNewProject', [ProjectController::class, 'insertProject']);
+
+Route::get('updateProject', [ProjectController::class, 'updateProject']);
+
+Route::get('deleteProject', [ProjectController::class, 'deleteProject']);
+
+Route::get('deleteFirstTenProjects', [ProjectController::class, 'deleteFirstTenProjects']);
+
+Route::get('getActive', [ProjectController::class, 'getActive']);
